@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lancamentos - SupabaseRestaurant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body class="bg-yellow-100 min-h-screen flex flex-col font-sans">
+
+  <header class="bg-[#ffcb00] text-black p-4 flex items-center justify-between shadow-md sticky top-0">
+    <img src="img/logoLogin.png" alt="Logo do Restaurante" class="h-16" />
+    <h1 class="text-xl font-bold">Supabase Restaurante</h1>
+
+    <div class="flex items-center space-x-6">
+      <a href="menu.html" class="font-medium hover:underline">Menu</a>
+      <a href="produtos.html" class="font-medium hover:underline">Produtos</a>
+      <a href="tipos.html" class="font-medium hover:underline">Tipos</a>
+      <button id="btnLogout"
+        class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">Logout</button>
+    </div>
+  </header>
+
+  <main class="flex-1 p-4">
+    <h2 class="text-l font-sans mb-4">Lançamentos de Produtos</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-md text-yellow-400 font-semibold mb-4">Novo Lançamento</h3>
+
+        <form id="formLancamento" class="space-y-4">
+          <div>
+            <label for="nomeProd" class="block text-sm font-medium text-gray-700">Nome do Produto</label>
+            <input id="nomeProd" name="nomeProd" type="text" autofocus required title="Informe o nome do produto"
+              class="border border-gray-200 p-2 w-full mt-2 rounded-md">
+          </div>
+
+          <div>
+            <label for="tipo_id" class="block text-sm font-medium text-gray-700">Tipo</label>
+            <select id="tipo_id" name="tipo_id" required class="border border-gray-500 p-2 w-full mt-2 rounded-md">
+              <option value="" disabled selected>Carregando tipos...</option>
+              </select>
+          </div>
+
+          <div>
+            <label for="descricao" class="block text-sm font-medium text-gray-700">Descrição</label>
+            <input id="descricao" name="descricao" type="text" required
+              title="Informe uma breve descrição sobre o produto"
+              class="border border-gray-200 p-2 w-full mt-2 rounded-md">
+          </div>
+
+          <div>
+            <label for="valor" class="block text-sm font-medium text-gray-700">Valor</label>
+            <input id="valor" name="valor" type="number" placeholder="0.00" required title="Informe o valor do produto"
+              min="0.01" step="0.01" class="border border-gray-500 p-2 w-full mt-2 rounded-md">
+          </div>
+
+          <div>
+            <label for="imagem" class="block text-sm font-medium text-gray-700">Imagem do Produto</label>
+            <input id="imagem" name="imagem" type="file" required accept="image/*"
+              class="border border-gray-500 p-2 w-full mt-2 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+          </div>
+          <div class="flex space-x-4">
+            <button type="submit"
+              class="bg-yellow-400 transform transition-transform hover:scale-105 text-white px-4 py-2 w-full rounded-md flex items-center justify-center">Salvar</button>
+
+            <button type="reset"
+              class="bg-red-500 transform transition-transform hover:scale-105 text-white px-4 py-2 w-full rounded-md flex items-center justify-center">Limpar</button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <h3 class="text-md font-sans mb-4">Histórico de Lançamentos</h3>
+
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="border p-2 text-left">Imagem</th>
+                <th class="border p-2 text-left">Nome do Produto</th>
+                <th class="border p-2 text-left">Tipo</th>
+                <th class="border p-2 text-left">Descrição</th>
+                <th class="border p-2 text-left">Valor</th>
+              </tr>
+            </thead>
+
+            <tbody id="tabelaLancamentos">
+              <tr>
+                <td colspan="5" class="bg-blue-100 text-blue-500 p-4 text-center">Carregando...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/mainLancamento.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - SupabaseRestaurant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.24.0/dist/sweetalert2.min.css">
+</head>
+
+<body class="bg-[#fef9f3] min-h-screen flex flex-col font-sans">
+  
+  <header class="bg-[#ffcb00] text-black p-4 flex items-center justify-between shadow-md sticky top-0">
+    <img src="img/logoLogin.png" alt="Logo do Restaurante" class="h-16"/>
+    <h1 class="text-xl font-bold">Supabase Restaurante</h1> 
+    
+    <div class="flex items-center space-x-6">
+      <a href="lancamentos.html" class="font-medium hover:underline">Lançamentos</a>
+      <a href="produtos.html" class="font-medium hover:underline">Produtos</a>
+      <a href="tipos.html" class="font-medium hover:underline">Tipos</a>
+      <button id="btnLogout" class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">Logout</button>
+    </div>
+  </header>
+  
+  <main class="container mx-auto p-8 mt-8">
+
+    <section id="restaurante" class="mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="text-gray-800">
+          <h2 class="text-4xl font-bold mb-6 text-black">Sabores Fatec</h2>
+          <p class="text-lg mb-4 leading-relaxed">
+            Bem-vindo ao Sabores Fatec! Somos o destino perfeito para a sua família, um restaurante completo que celebra os bons momentos da vida. Nosso cardápio foi cuidadosamente elaborado para agradar a todos os paladares, oferecendo uma experiência gastronômica completa!
+          </p>
+          <p class="text-lg mb-4 leading-relaxed">
+            Venha nos visitar na Rua das Palmeiras, 123 - Bairro Gastronômico, Salto/SP. Para reservas ou mais informações, entre em contato pelo telefone (15) 3211-5678 ou pelo email contato@saboresfatec.com.br. Nosso horário de funcionamento é de Terça a Domingo, das 11h30 às 23h00.
+          </p>
+        </div>
+        
+        <div class="flex space-x-4">
+            <img src="img/fachadaRestaurante.png" alt="Fachada do Restaurante" class="w-1/2 h-80 rounded-lg shadow-lg object-cover mt-10">
+            <img src="img/dentroRestaurante.png" alt="Dentro do restaurante" class="w-1/2 h-80 rounded-lg shadow-lg object-cover mt-30">
+        </div>
+
+      </div>
+    </section>
+    <section id="cardapio" class="mt-16">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-6xl font-extrabold text-black tracking-tight">
+          Cardápio:
+        </h2>
+      </div>
+
+      <div id="cardapio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">       
+        <p class="text-center col-span-3 text-gray-500">Carregando cardápio...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/mainMenu.js" type="module"></script>
+</body>
+</html>
