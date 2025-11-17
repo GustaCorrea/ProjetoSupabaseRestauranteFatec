@@ -30,3 +30,15 @@ WITH CHECK (true);
 
 ALTER TABLE produto
 ADD COLUMN imagem_url TEXT;
+
+CREATE POLICY "Permitir DELETE para usuários autenticados"
+ON produto
+FOR DELETE
+TO authenticated
+USING (true);
+
+CREATE POLICY "Permitir UPDATE para usuários autenticados"
+ON produto
+FOR UPDATE
+TO authenticated
+USING (true);

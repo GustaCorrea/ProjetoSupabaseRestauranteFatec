@@ -33,7 +33,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-md text-yellow-400 font-semibold mb-4">Novo Lançamento</h3>
+        <h3 id="form-titulo" class="text-md text-yellow-400 font-semibold mb-4">Novo Lançamento</h3>
 
         <form id="formLancamento" class="space-y-4">
           <div>
@@ -68,7 +68,7 @@
               class="border border-gray-500 p-2 w-full mt-2 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
           </div>
           <div class="flex space-x-4">
-            <button type="submit"
+            <button id="btnSalvar" type="submit"
               class="bg-yellow-400 transform transition-transform hover:scale-105 text-white px-4 py-2 w-full rounded-md flex items-center justify-center">Salvar</button>
 
             <button type="reset"

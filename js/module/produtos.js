@@ -1,22 +1,15 @@
 import { supabase } from "./config.js";
 
-// buscar produtos
+// buscar produto
 export async function buscarProdutos() {
     const { data, error } = await supabase
         .from('produto')
         .select(`
-            id,
-            nome,
-            descricao,
-            valor,
-            imagem_url,
+            id, nome, descricao, valor, imagem_url,
             tipo ( id, descricao ) 
         `);
 
-    if (error) {
-        console.error("Erro ao buscar produtos:", error);
-        throw new Error(error.message);
-    }
+    if (error) throw new Error(error.message);
     return data;
 }
 
@@ -27,9 +20,40 @@ export async function insertProduto(produto) {
         .insert(produto)
         .select();
 
-    if (error) {
-        console.error("Erro ao inserir produto:", error);
-        throw new Error(error.message);
-    }
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+// editar
+export async function atualizarProduto(id, produto) {
+    const { data, error } = await supabase
+        .from('produto')
+        .update(produto)
+        .eq('id', id)
+        .select();
+        
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+// excluir
+export async function excluirProduto(id) {
+    const { data, error } = await supabase
+        .from('produto')
+        .delete()
+        .eq('id', id);
+
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+export async function buscarProdutoPorId(id) {
+    const { data, error } = await supabase
+        .from('produto')
+        .select(`*, tipo(id, descricao)`)
+        .eq('id', id)
+        .single();
+
+    if (error) throw new Error(error.message);
     return data;
 }
